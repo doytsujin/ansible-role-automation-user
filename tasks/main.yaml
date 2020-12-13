@@ -41,3 +41,16 @@
     name: automation
     shell: /bin/bash
   become: yes
+
+- name: Allow port 22 (SSH)
+  ufw:
+    rule: allow
+    port: '22'
+    proto: any
+  become: yes
+
+- name: Reload Firewall and enable at boot
+  ufw:
+    state: enabled
+    policy: deny
+  become: yes
