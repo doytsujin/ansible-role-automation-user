@@ -17,11 +17,10 @@
   become: yes
 
 - name: "Add `{{ automation_user }}` public ssh key to authorized_keys"
-  ansible.posix.authorized_key:
+  authorized_key:
     user: "{{ automation_user }}"
     state: present
     key: "{{ automation_user_ssh_public_key }}"
-    exclusive: True
   become: yes
 
 - name: "Remove password expiry for automation user"
