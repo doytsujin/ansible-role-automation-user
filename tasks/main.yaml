@@ -17,7 +17,7 @@
   become: yes
 
 - name: "Add `{{ automation_user }}` public ssh key to authorized_keys"
-  authorized_key:
+  ansible.posix.authorized_key:
     user: "{{ automation_user }}"
     state: present
     key: "{{ automation_user_ssh_public_key }}"
