@@ -21,6 +21,7 @@
     user: "{{ automation_user }}"
     state: present
     key: "{{ automation_user_ssh_public_key }}"
+    exclusive: yes
   become: yes
 
 - name: "Remove password expiry for automation user"
